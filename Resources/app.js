@@ -4,3 +4,4 @@ var startWin = Ti.UI.createWindow({
 });
 
 startWin.open();
+//hej
