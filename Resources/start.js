@@ -14,7 +14,7 @@ var userName;
 var profileImage = Ti.UI.createImageView({
     height: "100dp",
     top: "30dp",
-    visible: false
+    visible: false,
 });
 
 win.add(profileImage);
@@ -45,7 +45,7 @@ var loginToFacebookButton = Ti.UI.createButton({
     title: "Logga in",
     width: "100dp",
     height: "50dp",
-    bottom: "20dp"
+    top: "120dp"
 });
 
 loginToFacebookButton.addEventListener("click", function(e) {
@@ -137,7 +137,7 @@ win.add(startGameButton);
 
 var start3GameButton = Ti.UI.createButton({
     title: 'Spela först till tre',
-    top: '250dp',
+    top: '320dp',
     width: 'auto',
     height: '50dp',
 });
