@@ -41,7 +41,13 @@ function setProfileImage() {
     });
 }
 
-var loginToFacebookButton = Ti.UI.createButton({
+win.add(fb.createLoginButton({
+    top : 120,
+    style : fb.BUTTON_STYLE_WIDE
+}));
+
+
+/*var loginToFacebookButton = Ti.UI.createButton({
     title: "Logga in",
     width: "100dp",
     height: "50dp",
@@ -52,13 +58,13 @@ loginToFacebookButton.addEventListener("click", function(e) {
     fb.authorize();
 });
 
-win.add(loginToFacebookButton);
+win.add(loginToFacebookButton);*/
 
 if (fb.loggedIn) {
     setProfileImage();
-    loginToFacebookButton.hide();
+    //loginToFacebookButton.hide();
 } else {
-    loginToFacebookButton.show();
+    //loginToFacebookButton.show();
 }
 
 fb.addEventListener('login', function(e) {
@@ -67,7 +73,7 @@ fb.addEventListener('login', function(e) {
         player1nameTextfield.hintText = userName;
         userNameLabel.text = userName;
         //  gotoAlbums.show();
-        loginToFacebookButton.hide();
+       // loginToFacebookButton.hide();
     } else if (e.error) {
         alert(e.error);
     } else if (e.cancelled) {
