@@ -117,7 +117,7 @@ function checkWon() {
 
 var navView = Ti.UI.createView({
     top: '0dp',
-    height: '60dp',
+    height: '64dp',
     backgroundColor: '#cccccc'
 });
 win.add(navView);
@@ -126,7 +126,8 @@ var closeGameButton = Ti.UI.createButton({
     title: 'Stäng',
     width: 'auto',
     height: 'auto',
-    left: '5dp',
+    left: '6dp',
+    top: '20dp',
 });
 closeGameButton.addEventListener('click', function(e) {
     win.close();
@@ -134,22 +135,41 @@ closeGameButton.addEventListener('click', function(e) {
 
 navView.add(closeGameButton);
 
+
+
+
+var playerInfoView = Ti.UI.createView({
+    top: '64dp',
+    height: '86dp',
+    backgroundColor: 'yellow'
+});
+win.add(playerInfoView);
+
 var wonCountLabel = Ti.UI.createLabel({
     text: player1name + ': ' + player1wins + ' ' + player2name + ': ' + player2wins,
-    bottom: 0
+    //bottom: 0,
+    top: '50dp',
+    backgroundColor: 'red',
 });
-navView.add(wonCountLabel);
+playerInfoView.add(wonCountLabel);
+
 if(win.gametype == 'win1'){
     wonCountLabel.hide;
 }
 
 var currentPlayerLabel = Ti.UI.createLabel({
-    text: 'Spelare: ' + player1name
+    text: 'Det är din tur: ' + player1name,
+    top: '20dp',
 });
-navView.add(currentPlayerLabel);
+
+playerInfoView.add(currentPlayerLabel);
+
+
+
+
 
 var gameView = Ti.UI.createView({
-    top: '60dp',
+    top: '150dp',
     //ÄR HÖG SOM SKÄRMEN ÄR BRED
     height: Ti.Platform.displayCaps.platformWidth,
     backgroundColor: player1Color
@@ -178,11 +198,11 @@ for ( i = 0; i < 9; i++) {
         if (currentPlayer == 0) {
             e.source.backgroundColor = player1Color;
             currentPlayer = 1;
-            currentPlayerLabel.text = 'Spelare: ' + player2name;
+            currentPlayerLabel.text = 'Det är din tur: ' + player2name;
         } else {
             e.source.backgroundColor = player2Color;
             currentPlayer = 0;
-            currentPlayerLabel.text = 'Spelare: ' + player1name;
+            currentPlayerLabel.text = 'Det är din tur: ' + player1name;
         }
 
         checkWon();
